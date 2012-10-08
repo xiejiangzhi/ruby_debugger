@@ -21,6 +21,7 @@ And then execute:
 ## Usage
   
   $ irb
+  ```ruby
   require 'bundler/setup'
   require 'ruby_debugger'
 
@@ -28,6 +29,7 @@ And then execute:
     binding.debug #断点进入irb环境
     puts a * b
   end
+  ```
 
   fn(1, 2)
 
