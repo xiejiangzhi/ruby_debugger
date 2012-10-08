@@ -6,10 +6,10 @@ require 'ruby_debugger/version'
 Gem::Specification.new do |gem|
   gem.name          = "ruby_debugger"
   gem.version       = RubyDebugger::VERSION
-  gem.authors       = ["TODO: Write your name"]
-  gem.email         = ["TODO: Write your email address"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.authors       = ["jiangzhi.xie"]
+  gem.email         = ["xiejiangzhi@gmail.com"]
+  gem.description   = %q{ruby debugger}
+  gem.summary       = %q{ruby debugger}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
