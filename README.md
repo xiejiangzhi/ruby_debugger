@@ -11,20 +11,26 @@
 ## Installation
 
 Add this line to your application's Gemfile:
-
-    gem 'ruby_debugger'
+  
+  gem "ruby_debugger", :git => "https://github.com/xjz19901211/ruby_debugger"
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install ruby_debugger
-
 ## Usage
+  
+  $ irb
+  require 'bundler/setup'
+  require 'ruby_debugger'
 
-TODO: Write usage instructions here
+  def fn(a, b)
+    binding.debug #断点进入irb环境
+    puts a * b
+  end
+
+  fn(1, 2)
+
 
 ## Contributing
 

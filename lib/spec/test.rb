@@ -1,4 +1,4 @@
-require "./debugger"
+require "debugger"
 
 def fn(a, b)
   binding.debug #change a and b
