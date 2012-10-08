@@ -12,7 +12,7 @@
 
 Add this line to your application's Gemfile:
   
-  gem "ruby_debugger", :git => "https://github.com/xjz19901211/ruby_debugger"
+    gem "ruby_debugger", :git => "https://github.com/xjz19901211/ruby_debugger"
 
 And then execute:
 
@@ -20,7 +20,7 @@ And then execute:
 
 ## Usage
   
-  $ irb
+    $ irb
   ```ruby
   require 'bundler/setup'
   require 'ruby_debugger'
