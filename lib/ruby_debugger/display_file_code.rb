@@ -38,9 +38,14 @@ module RubyDebugger
       File.open(@path) do |f|
         f.each_with_object("") do |l, str|
           return str if f.lineno > stop
-          str << l if (f.lineno >= start && f.lineno <= stop) || f.eof?
+          str << format_line(f, l) if (f.lineno >= start && f.lineno <= stop) || f.eof?
         end
       end
+    end
+
+    def format_line(f, l)
+      line_str = format("%-#{f.lineno.to_s.length + 1}i", f.lineno)
+      "#{ line_str } => #{l}"
     end
   end
 end

@@ -16,25 +16,25 @@ describe RubyDebugger::DisplayFileCode do
   context do
     it 'display line' do
       @file.display(2) do |out|
-        out.should == "require 'spec_helper'\n"
+        out.should == "2  => require 'spec_helper'\n"
       end
     end
 
     it 'more line' do
       @file.display(1, 3) do |out|
-        out.should == "\nrequire 'spec_helper'\n\n"
+        out.should == "1  => \n2  => require 'spec_helper'\n3  => \n"
       end
     end
 
     it '-2 line' do
       @file.display(-2) do |out|
-        out.should == "\n"
+        out.should == "1  => \n"
       end
     end
 
     it '10000 line' do
       @file.display(10000) do |out|
-        out.should == "\n"
+        out.should == "46  => \n"
       end
     end
   end
