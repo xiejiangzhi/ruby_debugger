@@ -9,9 +9,8 @@ module RubyDebugger
       d_context.code = ""
     end
 
-    add "exit" do |args|
+    add "exit" do |d_context|
       puts "exit!"
     end
-
   end
 end

@@ -1,3 +1,4 @@
+require 'pry'
 
 module RubyDebugger
   class DisplayFileCode
@@ -5,18 +6,13 @@ module RubyDebugger
       @path = path
     end
 
-    def display(start, stop = nil, &block)
+    def display(start, stop = nil, &out_proc)
       return unless exist?
 
       start, stop = correction_line(start, stop)
 
-      each_line do |f, l|
-        break if f.lineno > stop
-        
-        if f.lineno >= start && f.lineno <= stop
-          block.nil? ? print(l) : block(l)
-        end
-      end
+      lines = get_lines(start, stop)
+      out_proc.nil? ? print(lines) : out_proc.call(lines)
     end
 
     def exist?
@@ -35,13 +31,17 @@ module RubyDebugger
 
     def correction_line(start, stop)
       start = [start, 1].max
-      [(stop ? stop : start), start]
+      [start, (stop ? stop : start)]
     end
 
-    def each_line(&block)
+    def get_lines(start, stop)
       File.open(@path) do |f|
-        f.each_line {|l| block.call(f, l) }
+        f.each_with_object("") do |l, str|
+          return str if f.lineno > stop
+          str << l if (f.lineno >= start && f.lineno <= stop) || f.eof?
+        end
       end
     end
   end
 end
+

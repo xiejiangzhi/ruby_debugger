@@ -43,3 +43,4 @@ describe RubyDebugger::DisplayFileCode do
     @file.path.should == __FILE__
   end
 end
+

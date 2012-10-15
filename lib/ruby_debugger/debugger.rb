@@ -54,7 +54,14 @@ module RubyDebugger
     end
 
     def readcode
-      @code = Readline.readline("(irb)> ", true)
+      msg = "(irb)> "
+      
+      if Kernel.const_defined? :Readline
+        @code = Readline.readline(msg, true)
+      else
+        print msg
+        @code = gets
+      end
 
       #Commands.has(code) ?
       RubyDebugger::Commands.call(@code, :args => self)
