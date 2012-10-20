@@ -12,8 +12,8 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{ruby debugger}
   gem.homepage      = ""
 
-  gem.add_dependency "route_manager"
-  gem.add_dependency "rb-readline"
+  gem.add_runtime_dependency "route_manager"
+  gem.add_runtime_dependency "rb-readline"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
