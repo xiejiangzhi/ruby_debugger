@@ -5,7 +5,7 @@ gemspec
 
 gem 'route_manager', :git => 'https://github.com/xjz19901211/route_manager'
 
-gem 'rb-readline'
+gem 'rb-readline', "0.4.2"
 
 group :test do
   gem 'rspec'
